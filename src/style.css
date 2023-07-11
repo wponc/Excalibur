@@ -1,0 +1,35 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body
+{
+    overflow: hidden;
+    user-select:none;
+}
+
+.webgl
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    outline: none;
+    z-index:-1;
+}
+
+section{
+    display:grid;
+    place-items:center;
+    color:white;
+    height:100vh;
+    background-color: rgba(21, 150, 193, 0.31);
+}
+h1{
+    font-size: 22rem;
+}
+#workflow{
+    clip-path: inset(0 10% 0 25%);
+}
