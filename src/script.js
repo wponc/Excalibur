@@ -8,7 +8,7 @@ THREE.ColorManagement.enabled = false
  * Base
  */
 // Debug
-const gui = new dat.GUI()
+// const gui = new dat.GUI()
 
 // Canvas
 const canvas = document.querySelector('canvas.webgl')
