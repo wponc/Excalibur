@@ -15,19 +15,83 @@ const canvas = document.querySelector('canvas.webgl')
 
 // Scene
 const scene = new THREE.Scene()
+scene.background = new THREE.Color( 0x000000 );
 
+const geometry = new THREE.PlaneGeometry(4.5,4, 200,200)
+
+const count = geometry.attributes.position.count
+const randoms = new Float32Array(count)
+
+for(let i = 0; i < count; i++)
+{
+    randoms[i] = Math.random()
+}
+
+geometry.setAttribute('aRandom', new THREE.BufferAttribute(randoms, 1))
+
+let material;
 const mesh = new THREE.Mesh(
-    new THREE.BoxGeometry(1, 1, 1),
-    new THREE.MeshStandardMaterial({color: 'red'})
+    geometry,
+    material = new THREE.ShaderMaterial({
+        wireframe:true,
+        side: THREE.DoubleSide,
+        uniforms:
+        {
+            uFrequency: { value: new THREE.Vector2(10,10) },
+            uTime: { value: 0 },
+            uColor: { value: new THREE.Color('orange') },
+            // uTexture: { value: flagTexture }
+        },
+        vertexShader: `
+        uniform vec2 uFrequency;
+        uniform float uTime;
+
+        varying vec2 vUv;
+        varying float vElevation;
+
+        void main()
+        {
+            vec4 modelPosition = modelMatrix * vec4(position, 1.0);
+
+            float elevation = sin(modelPosition.x * uFrequency.x - uTime) * 0.075;
+            elevation += sin(modelPosition.y * uFrequency.y - uTime) * 0.075;
+
+            modelPosition.z += elevation;
+
+            vec4 viewPosition = viewMatrix * modelPosition;
+            vec4 projectedPosition = projectionMatrix * viewPosition;
+
+            gl_Position = projectedPosition;
+
+            vUv = uv;
+            vElevation = elevation;
+        }
+        `,
+        fragmentShader: `
+        uniform vec3 uColor;
+        uniform sampler2D uTexture;
+
+        varying vec2 vUv;
+        varying float vElevation;
+
+        void main()
+        {
+            vec4 textureColor = texture2D(uTexture, vUv);
+            textureColor.rgb *= vElevation * 2.0 + 0.65;
+            gl_FragColor = vec4(vUv, vUv.y, 1.0);
+        }
+        `
+    })
 )
 scene.add(mesh)
+    // const material = new THREE.MeshStandardMaterial();
 
 const directionalLight = new THREE.DirectionalLight( 0xffffff, 0.5 );
 directionalLight.position.set(1, 1, 0)
-scene.add( directionalLight );
+// scene.add( directionalLight );
 
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.5)
-scene.add(ambientLight)
+// scene.add(ambientLight)
 
 /**
  * Sizes
@@ -57,9 +121,8 @@ window.addEventListener('resize', () =>
  */
 // Base camera
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
-camera.position.x = 1
-camera.position.y = 1
-camera.position.z = 2
+camera.position.z = 1
+camera.position.y = -0.3
 scene.add(camera)
 
 // Controls
@@ -90,8 +153,8 @@ const tick = () =>
     // Update controls
     controls.update()
 
-    mesh.rotateX(0.005)
-    mesh.rotateZ(0.005)
+    material.uniforms.uTime.value = elapsedTime * 0.5
+
 
     // Render
     renderer.render(scene, camera)

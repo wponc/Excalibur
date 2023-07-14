@@ -13,7 +13,7 @@ body
     user-select:none;
     margin-left: 5%;
     margin-right: 5%;
-    color:rgb(0, 0, 0);
+    color:rgb(255, 255, 255);
     font-family: Avenir Next, sans-serif;
 }
 
@@ -26,6 +26,7 @@ nav{
     letter-spacing: 1rem;
     border-bottom: 2px solid;
     border-color: rgba(255, 255, 255,0.5);
+    background-color: rgb(122, 122, 122);
     margin-top:1%;
     font-size: 1.5rem;
     font-weight: bolder;
@@ -39,7 +40,7 @@ nav > .nav-section {
     gap:6rem;
 }
 a{
-    color:rgb(0, 0, 0);
+    color:rgb(255, 255, 255);
     text-decoration: none;
 }
 
@@ -58,16 +59,17 @@ section{
     height:100vh;
 }
 h1{
-    color:whitesmoke;
     font-size: 22rem;
-    mix-blend-mode: exclusion;
-
+    
 }
 img{
     transition: all 1.5s ease;
 }
 .landing{
-    background-image: url('assets/images/landing.png');
+    /* mix-blend-mode: difference; */
+    /* background-image: url('assets/images/landing.png'); */
+    /* -webkit-background-clip: text; */
+    /* -webkit-text-fill-color: transparent; */
     display:grid;
     place-items:center;
     width:100%;
