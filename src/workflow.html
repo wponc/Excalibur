@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="https://js.arcgis.com/4.27/esri/themes/light/main.css">
     <script src="https://js.arcgis.com/4.27/"></script>
+    <link rel="icon" type="image/x-icon" href="./assets/images/logo.svg">
+
 </head>
 <body>
     <nav id="homenav">
@@ -17,39 +19,166 @@
         <div id="links" class="nav-section">
             <a href="./index.html#overview">OVERVIEW</a>
             <a href="./workflow.html">WORKFLOW</a>
-            <a href="">USE</a>
+            <a href="">EXTRAS</a>
         </div>
         <div id="repo" class="nav-section">
-            <a href="https://github.com/wponc/Excalibur.git"><i><img src="./assets/images/github-mark.png" alt="Kiwi standing on oval" style="height:50px;width:50px;"></i></a>
+            <a href="https://github.com/wponc/Excalibur.git"><i><img src="./assets/images/github-mark-white.png" alt="Kiwi standing on oval" style="height:50px;width:50px;"></i></a>
         </div>
         </nav>
 
     <section>
-        <img src="./assets/images/workflow.png" alt="" id="workflow">
+        <div class="workflow">
+            <div class="glyph">
+                <img src="./assets/images/vm.svg" alt="Kiwi standing on oval" style="height:200px;width:200px;">
+                <p>VM spinup</p>
+            </div>    
+            <div class="glyph">
+                <img src="./assets/images/enterprise.svg" alt="Kiwi standing on oval" style="height:200px;width:200px;">
+                <p>Enterprise deployment</p>
+            </div>    
+            <div class="glyph">
+                <img src="./assets/images/logo.svg" alt="Kiwi standing on oval" style="height:200px;width:200px;">
+                <p>Excalibur analysis</p>
+            </div>    
+        </div>
+    </section>
+
+
+    <section>
+        <div class="text">
+            <h2>Use Case</h2><br>
+            <p>Your environmental conservation firm is giving a presentation to potential stakeholders galvanize dontation efforts</p>
+            <p>Obtain, markup, and present imagery identifying areas of severe change over the Amazonian rainforest</p><br>
+            <p>The presentation is tomorrow, clock is ticking</p>
+        </div>
     </section>
 
     <section>
-        <h2>Expansion & distribution</h2>
-        <p>A previous presentation utilzed the Reality Studio desktop app to generate high fidelity products, but the scale of the previous imagery felt unrealistic to properly demonstrate the real use-cases of Excalibur in the defense & intelligence community. This presentation was an attempt to utilize remote computing to scale up that workflow.
-        </p>
-        <p>Previous: 6 images across 1 camera angle: Nadir</p>
-        <p>New: 871 images across 6 camera angles: Forward, Backward, Nadir, Left, Right</p>
+        <div class="text">
+            <h2>Setup</h2><br>
+            <p>Since the presentation is tomorrow, we don't have time to generate a new imagery set to publish a hosted web layer</p>
+            <p>This presentation will have to be delivered using only publicly available imagery</p>
+            <p>Utilize your firm's Enterprise deployment and login to the Excalibur portal application using your portal credentials</p>
+        </div>
     </section>
 
     <section>
-            <h2>Previous imagery</h2>
-            <p>The scale of the previous imagery felt unrealistic to properly demonstrate the real use-cases of Excalibur 
-                in the defense & intelligence community.
-            </p>
-            <h2></h2>
+        <div class="halftext">
+            <h2>Image Discovery</h2><br>
+            <p>Navigate to the <span style="font-style: italic;font-weight: bold;">Search</span> tab on the left, and select <span style="font-style: italic;font-weight: bold;">Browse Layers</span> to immediately begin
+                discovering imagery.</p>   
+        </div>
+    </section>
+    
+    <section>
+        <div class="halftext">
+            <h2>WebGIS Tie-in</h2><br>
+            <p>Excalibur's integration into the ArcGIS ecosystem makes bringing in imagery from web services extremely efficient</p>   
+            <p>We'll utlilze a multispectral imagery layer from the <span style="font-style: italic;font-weight: bold;">Landsat Global Land Survey</span></p>
+            <p>Copy the Image Server's REST endpoint from the layer details in Living Atlas</p>
+        </div>
     </section>
 
     <section>
-
-
+        <div class="halftext">
+            <h2>Custom Parameters</h2><br>
+            <p>Specify the conditions that you want your landsat imagery to meet</p>
+            <p>We'll focus on an area of Southwest Brazil, <span style="font-style: italic;font-weight: bold;">Porto Velho</span></p>
+        </div>
+    </section>
+    
+    <section>
+        <div class="text">
+            <h2>Cooperating Views</h2>
+            <p>Excalibur feeds us the criteria-satisfying imagery</p>
+            <p>Imagery is orthorectified <span style="font-style: italic;font-weight: bold;">on-the-fly</span> to assimilate into the basemap orientation</p>
+            <p>Footprints and display can be toggled with the icons</p>
+        </div>
+    </section>
+    
+    <section>
+        <div class="text">
+            <h2>Fine details</h2>
+            <p><span style="font-style: italic;font-weight: bold;">Imagery specialists</span> can view the full extent of the metadata</p>
+            <p>Thumbnails in metadata are shown in their native perspective</p>
+        </div>
     </section>
 
-    <!-- <canvas class="webgl"></canvas>
-    <script type="module" src="./script.js"></script> -->
+    <section>
+        <div class="text">
+            <h2>Comprehensive Toolset</h2>
+            <p>We'll navigate through the different toolkits available to generate our presentation</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="text">
+            <h2>Rapid Re-rendering</h2>
+            <p>Excalibur can support multiple rendering styles dependent upon the image service's <span style="font-style: italic;font-weight: bold;">Raster Functions</span></p>
+            <p>Imagery will be re-rendered instantaneously to depict the chosen band combination</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="text">
+            <h2>Visual Comparison</h2>
+            <p>Broad view visual comparisons can be made with the <span style="font-style: italic;font-weight: bold;">Swipe</span> tool</p>
+            <p>We'll contrast the 1984 and 2009 imagery for a baseline idea of changes over a long period <p>
+        </div>
+    </section>
+    
+    <section>
+        <div class="text">
+            <h2>Calculable Comparison</h2>
+            <p> The <span style="font-style: italic;font-weight: bold;">Change Detection</span> tool will track pixel-by-pixel changes</p>
+            <p>We'll contrast the 2006 and 2009 imagery in a focused area for a more narrowed focus </p>
+        </div>
+    </section>
+
+    <section>
+        <div class="text">
+            <h2>Emergent Patterns</h2>
+            <p>After running, we receive a raster of <span style="font-style: italic;font-weight: bold;">only pixels</span> different between the images</p>
+            <p>Analyze the patterns further to formulate hypotheses</p>
+            <p>Parallel spines emerge in which land use has changed in only 3 years</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="text">
+            <h2>Flexible Symbology</h2>
+            <p>We can adjust the change detection raster's symbology</p>
+            <p>Referencing one of the <span style="font-style: italic;font-weight: bold;">multiple</span> different basemaps may provide further context</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="text">
+            <h2>Built-in Analyses</h2>
+            <p>We'll switch to the analysis tools and use the <span style="font-style: italic;font-weight: bold;">markup</span> toolkit</p>
+            <p>This allows us to annotate our canvas and the imagery within it</p>
+            <p>Vector features are created on demand</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="text">
+            <h2>Report Creation</h2>
+            <p>After a simple markup, we'll utilize the export tools to create a report</p>
+            <p>This autopopulates a powerpoint file with our marked up imagery</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="text">
+            <h2>Posterity</h2>
+            <p>Report is automatically downloaded to our machine</p>
+            <p>Portal upload instantly available</p>
+        </div>
+    </section>
+
+
+    <canvas class="webgl"></canvas>
+    <script type="module" src="./script.js"></script>
 </body>
 </html>
