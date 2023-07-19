@@ -11,23 +11,23 @@ body
 {
     overflow-x: hidden;
     user-select:none;
-    margin-left: 5%;
-    margin-right: 5%;
-    color:rgb(255, 255, 255);
     font-family: Avenir Next, sans-serif;
 }
 
 nav{
-    width:90%;
+    width:100%;
     position: fixed;
     display: flex;
     z-index: 99;
     align-items: center;
     letter-spacing: 1rem;
     border-bottom: 2px solid;
-    border-color: rgba(255, 255, 255,0.5);
-    background-color: rgb(122, 122, 122);
-    margin-top:1%;
+    border-color: rgb(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0.75);
+    padding-bottom:0.5%;
+    padding-top:1%;
+    /* margin-top:1%; */
+    width:100%;
     font-size: 1.5rem;
     font-weight: bolder;
 }
@@ -54,31 +54,78 @@ a{
 }
 
 section{
-    display:grid;
+    display:flex;
+    min-height:100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    color:rgb(255, 255, 255);
+    padding-left:5%;
+    padding-right:5%;
     place-items:center;
-    height:100vh;
+    gap:8em;
+}
+#landing{
+    /* color:rgb(0, 0, 0, 0.5); */
+    display: grid;
+    justify-content:center;
+    place-items:center;
+    mix-blend-mode: exclusion;
 }
 h1{
-    font-size: 22rem;
-    
+    font-size: 28rem;
 }
-img{
-    transition: all 1.5s ease;
+h2{
+    font-size:4em
 }
-.landing{
-    /* mix-blend-mode: difference; */
-    /* background-image: url('assets/images/landing.png'); */
-    /* -webkit-background-clip: text; */
-    /* -webkit-text-fill-color: transparent; */
+p{
+    font-size:3em;
+}
+.text{
+    display:block;
+}
+.halftext{
     display:grid;
-    place-items:center;
-    width:100%;
+    width:40%;
+}
+.image{
+    display:flex;
+    width:55%;
     height:100%;
-    background-size: cover;
 }
-#workflow{
-    clip-path: inset(0 36% 0 19%);
+.image img{
+    transition: all 1.5s ease;
+    width:100%;
 }
-#workflow:hover{
-    clip-path: inset(0 0 0 0);
+.workflow{
+    width:95%;
+    display:flex;
+
 }
+.glyph{
+    width:calc(100% / 3);
+    display:grid;
+    justify-content: center;
+    place-items: center;
+}
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #ffffff #ffffff;
+  }
+  
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 7px;
+  }
+  
+  *::-webkit-scrollbar-track {
+    background-color: black;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    /* background: rgb(63,94,251);
+    background: radial-gradient(circle, rgb(131, 131, 131) 0%, rgb(255, 255, 255) 100%); */
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgb(141, 141, 141) 51%, rgb(0, 0, 0) 100%);
+    border-radius: 1px;
+  }

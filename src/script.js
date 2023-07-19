@@ -15,7 +15,7 @@ const canvas = document.querySelector('canvas.webgl')
 
 // Scene
 const scene = new THREE.Scene()
-scene.background = new THREE.Color( 0x000000 );
+scene.background = new THREE.Color( 0x473a4a );
 
 const geometry = new THREE.PlaneGeometry(4.5,4, 200,200)
 
@@ -34,13 +34,10 @@ const mesh = new THREE.Mesh(
     geometry,
     material = new THREE.ShaderMaterial({
         wireframe:true,
-        side: THREE.DoubleSide,
         uniforms:
         {
             uFrequency: { value: new THREE.Vector2(10,10) },
             uTime: { value: 0 },
-            uColor: { value: new THREE.Color('orange') },
-            // uTexture: { value: flagTexture }
         },
         vertexShader: `
         uniform vec2 uFrequency;
@@ -84,14 +81,6 @@ const mesh = new THREE.Mesh(
     })
 )
 scene.add(mesh)
-    // const material = new THREE.MeshStandardMaterial();
-
-const directionalLight = new THREE.DirectionalLight( 0xffffff, 0.5 );
-directionalLight.position.set(1, 1, 0)
-// scene.add( directionalLight );
-
-const ambientLight = new THREE.AmbientLight(0xffffff, 0.5)
-// scene.add(ambientLight)
 
 /**
  * Sizes
@@ -153,7 +142,7 @@ const tick = () =>
     // Update controls
     controls.update()
 
-    material.uniforms.uTime.value = elapsedTime * 0.5
+    material.uniforms.uTime.value = elapsedTime * 0.3
 
 
     // Render
@@ -164,3 +153,4 @@ const tick = () =>
 }
 
 tick()
+console.log(window.devicePixelRatio)
