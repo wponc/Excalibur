@@ -17,7 +17,7 @@ const canvas = document.querySelector('canvas.webgl')
 const scene = new THREE.Scene()
 scene.background = new THREE.Color( 0x473a4a );
 
-const geometry = new THREE.PlaneGeometry(4.5,4, 200,200)
+const geometry = new THREE.PlaneGeometry(4.5,4, 300,300)
 
 const count = geometry.attributes.position.count
 const randoms = new Float32Array(count)
@@ -38,6 +38,7 @@ const mesh = new THREE.Mesh(
         {
             uFrequency: { value: new THREE.Vector2(10,10) },
             uTime: { value: 0 },
+            u_scroll: {type: 'f', value: 0.0}
         },
         vertexShader: `
         uniform vec2 uFrequency;
@@ -67,6 +68,10 @@ const mesh = new THREE.Mesh(
         fragmentShader: `
         uniform vec3 uColor;
         uniform sampler2D uTexture;
+        uniform float u_scroll;
+        uniform float uTime;
+
+
 
         varying vec2 vUv;
         varying float vElevation;
@@ -75,12 +80,18 @@ const mesh = new THREE.Mesh(
         {
             vec4 textureColor = texture2D(uTexture, vUv);
             textureColor.rgb *= vElevation * 2.0 + 0.65;
-            gl_FragColor = vec4(vUv, vUv.y, 1.0);
+            // gl_FragColor = vec4(vUv, vUv.y + cos(uTime) , 1.0);
+            gl_FragColor = vec4(vUv, vUv.y + cos(uTime) * 0.5 , 1.0);
         }
         `
     })
 )
 scene.add(mesh)
+let scrollY;
+window.addEventListener('scroll', () =>
+{
+    scrollY = window.scrollY
+})
 
 /**
  * Sizes
@@ -123,8 +134,7 @@ controls.enableDamping = true
  */
 const renderer = new THREE.WebGLRenderer({
     canvas: canvas,
-    alpha:true,
-    antialias:true
+    alpha:true
 })
 renderer.outputColorSpace = THREE.LinearSRGBColorSpace
 renderer.setSize(sizes.width, sizes.height)
@@ -143,6 +153,10 @@ const tick = () =>
     controls.update()
 
     material.uniforms.uTime.value = elapsedTime * 0.5
+    material.uniforms.u_scroll.value = scrollY;
+    // console.log(material.uniforms.u_scroll.value)
+
+    // console.log(scrollY)
 
 
     // Render

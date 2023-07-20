@@ -70,7 +70,7 @@ section{
     padding-right:5%;
     padding-right:5%;
     place-items:center;
-    gap:8em;
+    gap:4em;
 }
 #landing{
     gap:2em;
@@ -79,10 +79,11 @@ section{
     mix-blend-mode: exclusion;
     opacity:0;
     font-size: 6em;
+    font-weight:bolder;
 }
 #landing:hover {
     opacity:1;
-    transition:3s;
+    transition:3s all;
 }
 
 
@@ -100,11 +101,11 @@ p{
 }
 .halftext{
     display:grid;
-    width:40%;
+    width:35%;
 }
 .image{
     display:flex;
-    width:55%;
+    width:65%;
     height:100%;
 }
 .image img{
