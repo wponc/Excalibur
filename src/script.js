@@ -142,7 +142,7 @@ const tick = () =>
     // Update controls
     controls.update()
 
-    material.uniforms.uTime.value = elapsedTime * 0.3
+    material.uniforms.uTime.value = elapsedTime * 0.5
 
 
     // Render
@@ -153,4 +153,3 @@ const tick = () =>
 }
 
 tick()
-console.log(window.devicePixelRatio)
