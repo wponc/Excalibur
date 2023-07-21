@@ -7,13 +7,13 @@
     "dev": "vite",
     "build": "vite build",
     "deploy": "vercel --prod"
-    
   },
   "devDependencies": {
     "vite": "^4.3.9"
   },
   "dependencies": {
     "lil-gui": "^0.18.1",
-    "three": "^0.153.0"
+    "three": "^0.153.0",
+    "vite-plugin-vercel": "^0.2.1"
   }
 }
