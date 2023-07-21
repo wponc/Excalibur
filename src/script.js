@@ -54,7 +54,7 @@ const mesh = new THREE.Mesh(
             float elevation = sin(modelPosition.x * uFrequency.x - uTime) * 0.075;
             elevation += sin(modelPosition.y * uFrequency.y - uTime) * 0.075;
 
-            modelPosition.z += elevation;
+            modelPosition.z += sin(elevation + uTime * 0.01);
 
             vec4 viewPosition = viewMatrix * modelPosition;
             vec4 projectedPosition = projectionMatrix * viewPosition;
