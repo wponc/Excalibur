@@ -3524,4 +3524,4 @@ void main() {
             gl_FragColor = vec4(vUv, vUv.y + cos(uTime) * 0.5 , 1.0);
         }
         `}));ki.add(uf);let Ya;window.addEventListener("scroll",()=>{Ya=window.scrollY});const Nt={width:window.innerWidth,height:window.innerHeight};window.addEventListener("resize",()=>{Nt.width=window.innerWidth,Nt.height=window.innerHeight,En.aspect=Nt.width/Nt.height,En.updateProjectionMatrix(),$n.setSize(Nt.width,Nt.height),$n.setPixelRatio(Math.min(window.devicePixelRatio,2))});const En=new Tt(75,Nt.width/Nt.height,.1,100);En.position.z=1;En.position.y=-.3;ki.add(En);const ja=new cf(En,Wa);ja.enableDamping=!0;const $n=new ka({canvas:Wa,alpha:!0});$n.outputColorSpace=Ut;$n.setSize(Nt.width,Nt.height);$n.setPixelRatio(Math.min(window.devicePixelRatio,2));const hf=new lf,Ka=()=>{const i=hf.getElapsedTime();ja.update(),Ir.uniforms.uTime.value=i*.5,Ir.uniforms.u_scroll.value=Ya,$n.render(ki,En),window.requestAnimationFrame(Ka)};Ka();
-//# sourceMappingURL=index-155b462f.js.map
+//# sourceMappingURL=index-a1996e6f.js.map
