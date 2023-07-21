@@ -77,16 +77,16 @@ section{
     justify-content:center;
     place-items:center;
     mix-blend-mode: exclusion;
-    opacity:0;
+    /* opacity:0; */
     font-size: 6em;
     font-weight:bolder;
+    animation: fadeIn 5s ease-in-out;
 }
-#landing:hover{
+/* #landing:hover{
     /* opacity:1;
-    transition: all 3s ease-in-out; */
-    animation: fadeIn 3s ease-in-out;
+    transition: all 3s ease-in-out; 
     opacity: 1;
-}
+} */
 
 h1{
     font-size: 23rem;
